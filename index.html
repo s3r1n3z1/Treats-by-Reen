@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
         h1, h2, h3, .font-serif {
             font-family: 'Playfair Display', serif;
         }
-        /* Striped accent background */
         .striped-bg {
             background: repeating-linear-gradient(
                 45deg,
@@ -37,110 +36,85 @@
                     🍪
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight text-[#5c4033]">Treats by Reen</h1>
-                    <p class="text-xs text-[#8c6d58] font-medium">Homemade with Love</p>
+                    <h1 class="text-xl font-bold tracking-tight text-[#5c4033]" id="t-logo-title">Treats by Reen</h1>
+                    <p class="text-xs text-[#8c6d58] font-medium" id="t-logo-sub">Homemade with Love</p>
                 </div>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6b5344]">
-                <a href="#home" class="hover:text-[#d97777] transition">Home</a>
-                <a href="#about" class="hover:text-[#d97777] transition">Meet the Baker</a>
-                <a href="#menu" class="hover:text-[#d97777] transition">Menu</a>
-                <a href="#order" class="hover:text-[#d97777] transition">How to Order</a>
-            </nav>
+            <!-- Language Switcher & Nav -->
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-[#6b5344]">
+                    <a href="#home" class="hover:text-[#d97777] transition" id="t-nav-home">Home</a>
+                    <a href="#menu" class="hover:text-[#d97777] transition" id="t-nav-menu">Menu</a>
+                    <a href="#order" class="hover:text-[#d97777] transition" id="t-nav-order">How to Order</a>
+                    <a href="#about" class="hover:text-[#d97777] transition" id="t-nav-about">Meet the Baker</a>
+                </nav>
 
-            <button onclick="toggleCart()" class="relative bg-[#f4c2c2] hover:bg-[#eab3b3] text-[#5c4033] px-5 py-2.5 rounded-full font-semibold text-sm transition shadow-sm flex items-center gap-2 cursor-pointer">
-                <span>🛒 Bag</span>
-                <span id="cart-badge" class="bg-[#5c4033] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
-            </button>
+                <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-[#f5efe6] border border-[#e6dbc9] text-[#5c4033] text-xs font-semibold rounded-full px-3 py-1.5 focus:outline-none cursor-pointer">
+                    <option value="en">English 🇬🇧</option>
+                    <option value="fr">Français 🇫🇷</option>
+                    <option value="ar">العربية 🇩🇿</option>
+                </select>
+
+                <button onclick="toggleCart()" class="relative bg-[#f4c2c2] hover:bg-[#eab3b3] text-[#5c4033] px-4 py-2 rounded-full font-semibold text-sm transition shadow-sm flex items-center gap-2 cursor-pointer">
+                    <span id="t-cart-btn">🛒 Bag</span>
+                    <span id="cart-badge" class="bg-[#5c4033] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="striped-bg py-16 md:py-24 px-6 border-b border-[#e6dbc9]">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block bg-[#fdfbf7] text-[#5c4033] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 shadow-xs border border-[#e6dbc9]">
+            <span id="t-hero-tag" class="inline-block bg-[#fdfbf7] text-[#5c4033] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 shadow-xs border border-[#e6dbc9]">
                 Signature Cookie Bakery
             </span>
-            <h2 class="text-4xl md:text-6xl font-bold text-[#5c4033] mb-6 tracking-tight">
+            <h2 id="t-hero-title" class="text-4xl md:text-6xl font-bold text-[#5c4033] mb-6 tracking-tight">
                 Freshly Baked Homemade Cookies
             </h2>
-            <p class="text-lg md:text-xl text-[#735846] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+            <p id="t-hero-desc" class="text-lg md:text-xl text-[#735846] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
                 Warm, soft, and indulgent cookies made with love, care, and attention to detail. Only 350 DA each!
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#menu" class="w-full sm:w-auto bg-[#5c4033] hover:bg-[#432e24] text-white px-8 py-3.5 rounded-full font-semibold text-sm transition shadow-md">
+                <a href="#menu" id="t-hero-btn-menu" class="w-full sm:w-auto bg-[#5c4033] hover:bg-[#432e24] text-white px-8 py-3.5 rounded-full font-semibold text-sm transition shadow-md">
                     Explore Menu & Order
                 </a>
-                <a href="#about" class="w-full sm:w-auto bg-[#fdfbf7] hover:bg-[#f5efe6] text-[#5c4033] border border-[#d3c2b0] px-8 py-3.5 rounded-full font-semibold text-sm transition">
-                    Meet Serine
+                <a href="https://instagram.com/treats.by.reen" target="_blank" id="t-hero-btn-ig" class="w-full sm:w-auto bg-[#fdfbf7] hover:bg-[#f5efe6] text-[#5c4033] border border-[#d3c2b0] px-8 py-3.5 rounded-full font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <span>📸 Instagram</span>
+                </a>
+                <a href="https://tiktok.com/@treats.by.reen" target="_blank" id="t-hero-btn-tt" class="w-full sm:w-auto bg-[#fdfbf7] hover:bg-[#f5efe6] text-[#5c4033] border border-[#d3c2b0] px-8 py-3.5 rounded-full font-semibold text-sm transition flex items-center justify-center gap-2">
+                    <span>🎵 TikTok</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Meet the Baker Section -->
-    <section id="about" class="py-20 px-6 bg-[#fdfbf7]">
-        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-[#f0e6dc]">
-            <div class="text-center mb-8">
-                <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Our Story</span>
-                <h3 class="text-3xl font-bold text-[#5c4033] mt-1">Meet the Baker</h3>
-            </div>
-            <div class="space-y-4 text-[#6b5344] text-base md:text-lg leading-relaxed">
-                <p class="font-semibold text-[#5c4033]">Welcome to Treats by Serine!</p>
-                <p>Hi! I’m Serine, the heart behind Treats by Serine. I’ve always dreamed of starting my own business, and with my love for sweet treats, baking and all things desserts, I decided to turn that passion into something special.</p>
-                <p>What started as a love for delicious sweets and the idea of creating my own little business has grown into a place where I can share that passion with others.</p>
-                <p>I believe every sweet treat should bring a little happiness. From freshly baked cookies to delicious desserts and custom treats, everything is made with love, care and attention to detail.</p>
-                <p class="italic text-[#8c6d58]">Thank you for supporting my little business and being part of my journey. I’m so excited to share all things sweet with you! ♡</p>
-            </div>
-
-            <!-- Bullet points -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#f0e6dc]">
-                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
-                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
-                    Made with Love & Care
-                </div>
-                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
-                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
-                    Delicious Sweet Treats
-                </div>
-                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
-                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
-                    Attention to Every Detail
-                </div>
-                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
-                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
-                    Custom Treats for Special Occasions
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
+    <!-- Menu Section (Placed First) -->
     <section id="menu" class="py-20 px-6 bg-[#f7f2eb]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Freshly Baked</span>
-                <h3 class="text-3xl md:text-4xl font-bold text-[#5c4033] mt-1">Our Signature Cookies</h3>
-                <p class="text-[#735846] mt-2">Every cookie is freshly baked to order at 350 DA each.</p>
+                <span id="t-menu-sub" class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Freshly Baked</span>
+                <h3 id="t-menu-title" class="text-3xl md:text-4xl font-bold text-[#5c4033] mt-1">Our Signature Cookies</h3>
+                <p id="t-menu-desc" class="text-[#735846] mt-2">Every cookie is freshly baked to order at 350 DA each.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Cookie 1: Chocolate Chip -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
-                            <img src="https://storage.googleapis.com/generative-ai-assets/image_6.png" alt="Chocolate Chip Cookie" class="w-full h-full object-cover">
+                        <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="image_11.png" alt="Chocolate Chip Cookie" class="w-full h-full object-cover">
                         </div>
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold text-[#5c4033]">Chocolate Chip Cookie</h4>
+                            <h4 id="t-c1-title" class="text-xl font-bold text-[#5c4033]">Chocolate Chip Cookie</h4>
                             <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
                         </div>
-                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                        <p id="t-c1-desc" class="text-[#735846] text-sm leading-relaxed mb-6">
                             Classic golden cookie dough packed with gooey chocolate chips and a sprinkle of sea salt flakes.
                         </p>
                     </div>
-                    <button onclick="addToCart('Chocolate Chip Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                    <button onclick="addToCart(t[currentLang].c1_title, 350)" id="t-c1-btn" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
                         + Add to Bag
                     </button>
                 </div>
@@ -148,18 +122,18 @@
                 <!-- Cookie 2: Brownie Cookie -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
-                            <img src="https://storage.googleapis.com/generative-ai-assets/image_4.png" alt="Brownie Cookie" class="w-full h-full object-cover">
+                        <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="image_9.png" alt="Brownie Cookie" class="w-full h-full object-cover">
                         </div>
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold text-[#5c4033]">Brownie Cookie</h4>
+                            <h4 id="t-c2-title" class="text-xl font-bold text-[#5c4033]">Brownie Cookie</h4>
                             <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
                         </div>
-                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                        <p id="t-c2-desc" class="text-[#735846] text-sm leading-relaxed mb-6">
                             Ultra-fudgy dark chocolate dough baked to soft perfection with a shiny crackly top.
                         </p>
                     </div>
-                    <button onclick="addToCart('Brownie Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                    <button onclick="addToCart(t[currentLang].c2_title, 350)" id="t-c2-btn" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
                         + Add to Bag
                     </button>
                 </div>
@@ -167,18 +141,18 @@
                 <!-- Cookie 3: White Chocolate Twix Cookie -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
-                            <img src="https://storage.googleapis.com/generative-ai-assets/image_5.png" alt="White Chocolate Twix Cookie" class="w-full h-full object-cover">
+                        <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="image_8.png" alt="White Chocolate Twix Cookie" class="w-full h-full object-cover">
                         </div>
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold text-[#5c4033]">White Chocolate Twix Cookie</h4>
+                            <h4 id="t-c3-title" class="text-xl font-bold text-[#5c4033]">White Chocolate Twix Cookie</h4>
                             <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
                         </div>
-                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                        <p id="t-c3-desc" class="text-[#735846] text-sm leading-relaxed mb-6">
                             Rich buttery dough filled with white chocolate chunks, crunchy biscuit bits, and caramel swirl.
                         </p>
                     </div>
-                    <button onclick="addToCart('White Chocolate Twix Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                    <button onclick="addToCart(t[currentLang].c3_title, 350)" id="t-c3-btn" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
                         + Add to Bag
                     </button>
                 </div>
@@ -186,18 +160,18 @@
                 <!-- Cookie 4: Mars Cookie -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
-                            <img src="https://storage.googleapis.com/generative-ai-assets/image_3.png" alt="Mars Cookie" class="w-full h-full object-cover">
+                        <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="image_10.png" alt="Mars Cookie" class="w-full h-full object-cover">
                         </div>
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold text-[#5c4033]">Mars Cookie</h4>
+                            <h4 id="t-c4-title" class="text-xl font-bold text-[#5c4033]">Mars Cookie</h4>
                             <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
                         </div>
-                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                        <p id="t-c4-desc" class="text-[#735846] text-sm leading-relaxed mb-6">
                             Soft golden cookie stuffed with real caramel and rich Mars chocolate pieces.
                         </p>
                     </div>
-                    <button onclick="addToCart('Mars Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                    <button onclick="addToCart(t[currentLang].c4_title, 350)" id="t-c4-btn" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
                         + Add to Bag
                     </button>
                 </div>
@@ -205,18 +179,18 @@
                 <!-- Cookie 5: M&M's Cookie -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
-                            <img src="https://storage.googleapis.com/generative-ai-assets/image_7.png" alt="M&M's Cookie" class="w-full h-full object-cover">
+                        <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="image_7.png" alt="M&M's Cookie" class="w-full h-full object-cover">
                         </div>
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold text-[#5c4033]">M&M's Cookie</h4>
+                            <h4 id="t-c5-title" class="text-xl font-bold text-[#5c4033]">M&M's Cookie</h4>
                             <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
                         </div>
-                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                        <p id="t-c5-desc" class="text-[#735846] text-sm leading-relaxed mb-6">
                             Classic buttery golden cookie packed with colorful, crunchy M&M's candies and milk chocolate chips.
                         </p>
                     </div>
-                    <button onclick="addToCart('M&M\'s Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                    <button onclick="addToCart(t[currentLang].c5_title, 350)" id="t-c5-btn" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
                         + Add to Bag
                     </button>
                 </div>
@@ -227,23 +201,60 @@
     <!-- How to Order Section -->
     <section id="order" class="py-20 px-6 bg-[#fdfbf7]">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Simple Process</span>
-            <h3 class="text-3xl font-bold text-[#5c4033] mt-1 mb-12">How to Order</h3>
+            <span id="t-step-sub" class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Simple Process</span>
+            <h3 id="t-step-title" class="text-3xl font-bold text-[#5c4033] mt-1 mb-12">How to Order</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
                     <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">1</div>
-                    <h5 class="font-bold text-[#5c4033] mb-2">Choose Cookies</h5>
-                    <p class="text-sm text-[#735846]">Select your favorite cookies and add them to your shopping bag.</p>
+                    <h5 id="t-step1-title" class="font-bold text-[#5c4033] mb-2">Choose Cookies</h5>
+                    <p id="t-step1-desc" class="text-sm text-[#735846]">Select your favorite cookies and add them to your shopping bag.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
                     <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">2</div>
-                    <h5 class="font-bold text-[#5c4033] mb-2">Fill Details</h5>
-                    <p class="text-sm text-[#735846]">Choose pickup or delivery, and enter your contact details.</p>
+                    <h5 id="t-step2-title" class="font-bold text-[#5c4033] mb-2">Fill Details</h5>
+                    <p id="t-step2-desc" class="text-sm text-[#735846]">Choose pickup or delivery, and enter your contact details.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
                     <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">3</div>
-                    <h5 class="font-bold text-[#5c4033] mb-2">Cash on Delivery</h5>
-                    <p class="text-sm text-[#735846]">Send your order via WhatsApp and pay cash upon pickup or delivery!</p>
+                    <h5 id="t-step3-title" class="font-bold text-[#5c4033] mb-2">Cash on Delivery</h5>
+                    <p id="t-step3-desc" class="text-sm text-[#735846]">Send your order via WhatsApp and pay cash upon pickup or delivery!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Baker Section (Moved to Bottom) -->
+    <section id="about" class="py-20 px-6 bg-[#f7f2eb] border-t border-[#e8dfd3]">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-[#f0e6dc]">
+            <div class="text-center mb-8">
+                <span id="t-about-sub" class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Our Story</span>
+                <h3 id="t-about-title" class="text-3xl font-bold text-[#5c4033] mt-1">Meet the Baker</h3>
+            </div>
+            <div class="space-y-4 text-[#6b5344] text-base md:text-lg leading-relaxed">
+                <p id="t-about-p1" class="font-semibold text-[#5c4033]">Welcome to Treats by Serine!</p>
+                <p id="t-about-p2">Hi! I’m Serine, the heart behind Treats by Serine. I’ve always dreamed of starting my own business, and with my love for sweet treats, baking and all things desserts, I decided to turn that passion into something special.</p>
+                <p id="t-about-p3">What started as a love for delicious sweets and the idea of creating my own little business has grown into a place where I can share that passion with others.</p>
+                <p id="t-about-p4">I believe every sweet treat should bring a little happiness. From freshly baked cookies to delicious desserts and custom treats, everything is made with love, care and attention to detail.</p>
+                <p id="t-about-p5" class="italic text-[#8c6d58]">Thank you for supporting my little business and being part of my journey. I’m so excited to share all things sweet with you! ♡</p>
+            </div>
+
+            <!-- Bullet points -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#f0e6dc]">
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    <span id="t-b1">Made with Love & Care</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    <span id="t-b2">Delicious Sweet Treats</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    <span id="t-b3">Attention to Every Detail</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    <span id="t-b4">Custom Treats for Special Occasions</span>
                 </div>
             </div>
         </div>
@@ -254,12 +265,13 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
                 <h2 class="text-2xl font-bold font-serif mb-1">Treats by Reen</h2>
-                <p class="text-xs text-[#d3c2b0]">Baked with love & premium ingredients by Serine. ♡</p>
+                <p id="t-footer-sub" class="text-xs text-[#d3c2b0]">Baked with love & premium ingredients by Serine. ♡</p>
             </div>
             <div class="text-sm text-[#d3c2b0] space-y-1">
-                <p>📍 Local Homemade Bakery</p>
-                <p>📸 Instagram: <a href="https://instagram.com/treatsbyreen" target="_blank" class="underline hover:text-white">@treatsbyreen</a></p>
-                <p class="mt-1">Order via WhatsApp / Cash on Delivery or Pickup</p>
+                <p id="t-footer-loc">📍 Local Homemade Bakery</p>
+                <p>📸 Instagram: <a href="https://instagram.com/treats.by.reen" target="_blank" class="underline hover:text-white">@treats.by.reen</a></p>
+                <p>🎵 TikTok: <a href="https://tiktok.com/@treats.by.reen" target="_blank" class="underline hover:text-white">@treats.by.reen</a></p>
+                <p id="t-footer-pay" class="mt-1">Order via WhatsApp / Cash on Delivery or Pickup</p>
             </div>
         </div>
     </footer>
@@ -268,62 +280,198 @@
     <div id="cart-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden flex justify-end">
         <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl p-6 overflow-y-auto">
             <div class="flex items-center justify-between pb-4 border-b border-[#f0e6dc]">
-                <h3 class="text-xl font-bold text-[#5c4033]">Your Shopping Bag</h3>
+                <h3 id="t-modal-title" class="text-xl font-bold text-[#5c4033]">Your Shopping Bag</h3>
                 <button onclick="toggleCart()" class="text-[#735846] hover:text-black text-lg font-bold cursor-pointer">✕</button>
             </div>
 
-            <!-- Cart Items List -->
             <div id="cart-items" class="flex-1 py-6 space-y-4 overflow-y-auto">
-                <p class="text-center text-[#8c6d58] text-sm py-12">Your bag is currently empty.</p>
+                <p id="t-cart-empty" class="text-center text-[#8c6d58] text-sm py-12">Your bag is currently empty.</p>
             </div>
 
-            <!-- Checkout Form Section -->
             <div id="checkout-section" class="border-t border-[#f0e6dc] pt-4 hidden">
                 <div class="flex justify-between items-center mb-4 text-lg font-bold text-[#5c4033]">
-                    <span>Total:</span>
+                    <span id="t-total-label">Total:</span>
                     <span id="cart-total">0 DA</span>
                 </div>
 
                 <form id="order-form" onsubmit="submitOrder(event)" class="space-y-3">
                     <div>
-                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Fulfillment Type</label>
-                        <select id="fulfillment" onchange="toggleAddress()" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
-                            <option value="Pickup">Store Pickup (Cash on Pickup)</option>
-                            <option value="Delivery">Local Delivery (Cash on Delivery)</option>
+                        <label id="t-lbl-fulfillment" class="block text-xs font-semibold text-[#5c4033] mb-1">Fulfillment Type</label>
+                        <select id="fulfillment" onchange="toggleAddress()" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none">
+                            <option id="t-opt-pickup" value="Pickup">Store Pickup (Cash on Pickup)</option>
+                            <option id="t-opt-delivery" value="Delivery">Local Delivery (Cash on Delivery)</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Full Name *</label>
-                        <input type="text" id="cust-name" required placeholder="Enter your name" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                        <label id="t-lbl-name" class="block text-xs font-semibold text-[#5c4033] mb-1">Full Name *</label>
+                        <input type="text" id="cust-name" required placeholder="Enter your name" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Phone Number *</label>
-                        <input type="tel" id="cust-phone" required placeholder="Enter your phone number" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                        <label id="t-lbl-phone" class="block text-xs font-semibold text-[#5c4033] mb-1">Phone Number *</label>
+                        <input type="tel" id="cust-phone" required placeholder="Enter your phone number" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none">
                     </div>
 
                     <div id="address-box" class="hidden">
-                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Delivery Address *</label>
-                        <input type="text" id="cust-address" placeholder="Street / Neighborhood" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                        <label id="t-lbl-address" class="block text-xs font-semibold text-[#5c4033] mb-1">Delivery Address *</label>
+                        <input type="text" id="cust-address" placeholder="Street / Neighborhood" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Preferred Date / Notes</label>
-                        <input type="text" id="cust-notes" placeholder="e.g. Tomorrow afternoon" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                        <label id="t-lbl-notes" class="block text-xs font-semibold text-[#5c4033] mb-1">Preferred Date / Notes</label>
+                        <input type="text" id="cust-notes" placeholder="e.g. Tomorrow afternoon" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none">
                     </div>
 
                     <button type="submit" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3.5 rounded-xl font-bold text-sm transition shadow-sm mt-4 flex items-center justify-center gap-2 cursor-pointer">
-                        <span>Send Order via WhatsApp</span>
+                        <span id="t-btn-submit">Send Order via WhatsApp</span>
                     </button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Application Logic -->
+    <!-- JavaScript Application & Multilingual Logic -->
     <script>
         let cart = [];
+        let currentLang = 'en';
+
+        const t = {
+            en: {
+                nav_home: "Home", nav_menu: "Menu", nav_order: "How to Order", nav_about: "Meet the Baker", cart_btn: "🛒 Bag",
+                hero_tag: "Signature Cookie Bakery", hero_title: "Freshly Baked Homemade Cookies", hero_desc: "Warm, soft, and indulgent cookies made with love, care, and attention to detail. Only 350 DA each!", hero_btn_menu: "Explore Menu & Order", hero_btn_ig: "📸 Instagram", hero_btn_tt: "🎵 TikTok",
+                menu_sub: "Freshly Baked", menu_title: "Our Signature Cookies", menu_desc: "Every cookie is freshly baked to order at 350 DA each.", add_btn: "+ Add to Bag",
+                c1_title: "Chocolate Chip Cookie", c1_desc: "Classic golden cookie dough packed with gooey chocolate chips and a sprinkle of sea salt flakes.",
+                c2_title: "Brownie Cookie", c2_desc: "Ultra-fudgy dark chocolate dough baked to soft perfection with a shiny crackly top.",
+                c3_title: "White Chocolate Twix Cookie", c3_desc: "Rich buttery dough filled with white chocolate chunks, crunchy biscuit bits, and caramel swirl.",
+                c4_title: "Mars Cookie", c4_desc: "Soft golden cookie stuffed with real caramel and rich Mars chocolate pieces.",
+                c5_title: "M&M's Cookie", c5_desc: "Classic buttery golden cookie packed with colorful, crunchy M&M's candies and milk chocolate chips.",
+                step_sub: "Simple Process", step_title: "How to Order", step1_t: "Choose Cookies", step1_d: "Select your favorite cookies and add them to your shopping bag.", step2_t: "Fill Details", step2_d: "Choose pickup or delivery, and enter your contact details.", step3_t: "Cash on Delivery", step3_d: "Send your order via WhatsApp and pay cash upon pickup or delivery!",
+                about_sub: "Our Story", about_title: "Meet the Baker", about_p1: "Welcome to Treats by Serine!", about_p2: "Hi! I’m Serine, the heart behind Treats by Serine. I’ve always dreamed of starting my own business, and with my love for sweet treats, baking and all things desserts, I decided to turn that passion into something special.", about_p3: "What started as a love for delicious sweets and the idea of creating my own little business has grown into a place where I can share that passion with others.", about_p4: "I believe every sweet treat should bring a little happiness. From freshly baked cookies to delicious desserts and custom treats, everything is made with love, care and attention to detail.", about_p5: "Thank you for supporting my little business and being part of my journey. I’m so excited to share all things sweet with you! ♡",
+                b1: "Made with Love & Care", b2: "Delicious Sweet Treats", b3: "Attention to Every Detail", b4: "Custom Treats for Special Occasions",
+                footer_sub: "Baked with love & premium ingredients by Serine. ♡", footer_loc: "📍 Local Homemade Bakery", footer_pay: "Order via WhatsApp / Cash on Delivery or Pickup",
+                modal_title: "Your Shopping Bag", cart_empty: "Your bag is currently empty.", total_label: "Total:", lbl_fulfillment: "Fulfillment Type", opt_pickup: "Store Pickup (Cash on Pickup)", opt_delivery: "Local Delivery (Cash on Delivery)", lbl_name: "Full Name *", lbl_phone: "Phone Number *", lbl_address: "Delivery Address *", lbl_notes: "Preferred Date / Notes", btn_submit: "Send Order via WhatsApp"
+            },
+            fr: {
+                nav_home: "Accueil", nav_menu: "Menu", nav_order: "Commander", nav_about: "À propos", cart_btn: "🛒 Panier",
+                hero_tag: "Biscuiterie Artisanale", hero_title: "Cookies Maison Fraîchement Cuits", hero_desc: "Des cookies chauds, moelleux et gourmands faits avec amour et attention. Seulement 350 DA chacun!", hero_btn_menu: "Menu & Commande", hero_btn_ig: "📸 Instagram", hero_btn_tt: "🎵 TikTok",
+                menu_sub: "Frais du Jour", menu_title: "Nos Cookies Signature", menu_desc: "Chaque cookie est cuit à la commande pour 350 DA chacun.", add_btn: "+ Ajouter au Panier",
+                c1_title: "Cookie Pépites de Chocolat", c1_desc: "Pâte à cookie dorée classique garnie de pépites de chocolat fondantes et d'une pincée de fleur de sel.",
+                c2_title: "Cookie Brownie", c2_desc: "Pâte au chocolat noir ultra-moelleuse cuite à la perfection avec une surface craquelée.",
+                c3_title: "Cookie Twix Chocolat Blanc", c3_desc: "Riche pâte pur beurre garnie de morceaux de chocolat blanc, biscuits croustillants et caramel.",
+                c4_title: "Cookie Mars", c4_desc: "Cookie doré moelleux fourré au véritable caramel et morceaux de chocolat Mars.",
+                c5_title: "Cookie M&M's", c5_desc: "Cookie doré classique rempli de bonbons M&M's colorés et croustillants et pépites de chocolat au lait.",
+                step_sub: "Processus Simple", step_title: "Comment Commander", step1_t: "Choisissez vos Cookies", step1_d: "Sélectionnez vos cookies préférés et ajoutez-les à votre panier.", step2_t: "Vos Coordonnées", step2_d: "Choisissez le retrait ou la livraison et entrez vos informations.", step3_t: "Paiement à la Livraison", step3_d: "Envoyez votre commande sur WhatsApp et payez en espèces!",
+                about_sub: "Notre Histoire", about_title: "Rencontrer la Pâtissière", about_p1: "Bienvenue chez Treats by Serine!", about_p2: "Bonjour! Je suis Serine, le cœur derrière Treats by Serine. J'ai toujours rêvé de lancer mon propre projet, et passionnée de pâtisserie, j'ai décidé de transformer cette passion en quelque chose de spécial.", about_p3: "Ce qui a commencé par un amour pour les douceurs s'est transformé en un espace où je peux partager cette passion avec vous.", about_p4: "Je crois que chaque douceur doit apporter un moment de bonheur. Tout est préparé avec amour, soin et attention.", about_p5: "Merci de soutenir ma petite entreprise et de faire partie de mon aventure! ♡",
+                b1: "Fait avec Amour & Soin", b2: "Délicieuses Douceurs", b3: "Attention à Chaque Détail", b4: "Commandes Personnalisées",
+                footer_sub: "Cuit avec amour et ingrédients de qualité par Serine. ♡", footer_loc: "📍 Pâtisserie Artisanale Locale", footer_pay: "Commande via WhatsApp / Paiement à la livraison ou retrait",
+                modal_title: "Votre Panier", cart_empty: "Votre panier est vide pour le moment.", total_label: "Total:", lbl_fulfillment: "Mode de Livraison", opt_pickup: "Retrait sur Place (Espèces au retrait)", opt_delivery: "Livraison Locale (Espèces à la livraison)", lbl_name: "Nom Complet *", lbl_phone: "Numéro de Téléphone *", lbl_address: "Adresse de Livraison *", lbl_notes: "Date souhaitée / Notes", btn_submit: "Envoyer via WhatsApp"
+            },
+            ar: {
+                nav_home: "الرئيسية", nav_menu: "القائمة", nav_order: "كيفية الطلب", nav_about: "عن المخبزة", cart_btn: "🛒 السلة",
+                hero_tag: "مخبزة الكوكيز المنزلية", hero_title: "كوكيز منزلي طازج ولذيذ", hero_desc: "كوكيز دافئ، طري ومحضر بكل حب وعناية. فقط بـ 350 د.ج للقطعة!", hero_btn_menu: "استكشف القائمة واطلب", hero_btn_ig: "📸 إنستغرام", hero_btn_tt: "🎵 تيك توك",
+                menu_sub: "طازج يومياً", menu_title: "تشكيلتنا المميزة من الكوكيز", menu_desc: "كل قطعة كوكيز تُخبز طازجة عند الطلب بـ 350 د.ج فقط.", add_btn: "+ أضف إلى السلة",
+                c1_title: "كوكيز بقطع الشوكولاتة", c1_desc: "عجينة الكوكيز الذهبية الكلاسيكية المحشوة بقطع الشوكولاتة الذائبة ورشة ملح البحر.",
+                c2_title: "براوني كوكيز", c2_desc: "عجينة الشوكولاتة الداكنة الغنية والطرية، مخبوزة بإتقان مع طبقة علوية مقرمشة.",
+                c3_title: "كوكيز تويكس بالشوكولاتة البيضاء", c3_desc: "عجينة غنية بالزبدة محشوة بقطع الشوكولاتة البيضاء، البسكويت المقرمش ولمسة من الكراميل.",
+                c4_title: "كوكيز مارس", c4_desc: "كوكيز ذهبي طري محشو بالكراميل الحقيقي وقطع شوكولاتة مارس الغنية.",
+                c5_title: "كوكيز إم أند إمز (M&M's)", c5_desc: "كوكيز ذهبي كلاسيكي مليء بحبيبات إم أند إمز الملونة والمقرمشة وشوكولاتة الحليب.",
+                step_sub: "خطوات بسيطة", step_title: "كيفية الطلب", step1_t: "اختر الكوكيز", step1_d: "اختر أنواع الكوكيز المفضلة لديك وأضفها إلى سلة التسوق.", step2_t: "أدخل التفاصيل", step2_d: "حدد خيار الاستلام أو التوصيل وأدخل معلومات الاتصال الخاصة بك.", step3_t: "الدفع عند الاستلام", step3_d: "أرسل طلبك عبر الواتساب وادفع نقداً عند الاستلام أو التوصيل!",
+                about_sub: "قصتنا", about_title: "تعرف على الطباخة", about_p1: "مرحباً بكم في Treats by Serine!", about_p2: "أهلاً! أنا سيرين، صاحبة مشروع Treats by Serine. طالما حلمت ببدء مشروعي الخاص، وبحبي للحلويات والمخبوزات، قررت تحويل هذا الشغف إلى شيء مميز.", about_p3: "ما بدأ كحب للحلويات اللذيذة وفكرة إنشاء عملي الخاص تحول إلى مكان أشارك فيه هذا الشغف معكم.", about_p4: "أؤمن أن كل قطعة حلوى يجب أن تجلب السعادة. كل شيء مصنوع بحب، عناية واهتمام بأدق التفاصيل.", about_p5: "شكراً لدعمكم لمشروعي الصغير ومشاركتي هذه الرحلة! ♡",
+                b1: "صنع بكل حب وعناية", b2: "حلويات منزلية شهية", b3: "اهتمام بأدق التفاصيل", b4: "طلب خاص للمناسبات",
+                footer_sub: "مخبوز بحب وبأجود المكونات بواسطة سيرين. ♡", footer_loc: "📍 مخبزة منزلية محلية", footer_pay: "الطلب عبر الواتساب / الدفع نقداً عند الاستلام",
+                modal_title: "سلة التسوق", cart_empty: "السلة فارغة حالياً.", total_label: "المجموع:", lbl_fulfillment: "طريقة الاستلام", opt_pickup: "الاستلام من المخبزة (الدفع عند الاستلام)", opt_delivery: "التوصيل المحلي (الدفع عند التوصيل)", lbl_name: "الاسم الكامل *", lbl_phone: "رقم الهاتف *", lbl_address: "عنوان التوصيل *", lbl_notes: "التاريخ المفضل / ملاحظات", btn_submit: "إرسال الطلب عبر الواتساب"
+            }
+        };
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Nav
+            document.getElementById('t-nav-home').innerText = t[lang].nav_home;
+            document.getElementById('t-nav-menu').innerText = t[lang].nav_menu;
+            document.getElementById('t-nav-order').innerText = t[lang].nav_order;
+            document.getElementById('t-nav-about').innerText = t[lang].nav_about;
+            document.getElementById('t-cart-btn').innerText = t[lang].cart_btn;
+
+            // Hero
+            document.getElementById('t-hero-tag').innerText = t[lang].hero_tag;
+            document.getElementById('t-hero-title').innerText = t[lang].hero_title;
+            document.getElementById('t-hero-desc').innerText = t[lang].hero_desc;
+            document.getElementById('t-hero-btn-menu').innerText = t[lang].hero_btn_menu;
+            document.getElementById('t-hero-btn-ig').innerText = t[lang].hero_btn_ig;
+            document.getElementById('t-hero-btn-tt').innerText = t[lang].hero_btn_tt;
+
+            // Menu Header
+            document.getElementById('t-menu-sub').innerText = t[lang].menu_sub;
+            document.getElementById('t-menu-title').innerText = t[lang].menu_title;
+            document.getElementById('t-menu-desc').innerText = t[lang].menu_desc;
+
+            // Cookies
+            document.getElementById('t-c1-title').innerText = t[lang].c1_title;
+            document.getElementById('t-c1-desc').innerText = t[lang].c1_desc;
+            document.getElementById('t-c1-btn').innerText = t[lang].add_btn;
+
+            document.getElementById('t-c2-title').innerText = t[lang].c2_title;
+            document.getElementById('t-c2-desc').innerText = t[lang].c2_desc;
+            document.getElementById('t-c2-btn').innerText = t[lang].add_btn;
+
+            document.getElementById('t-c3-title').innerText = t[lang].c3_title;
+            document.getElementById('t-c3-desc').innerText = t[lang].c3_desc;
+            document.getElementById('t-c3-btn').innerText = t[lang].add_btn;
+
+            document.getElementById('t-c4-title').innerText = t[lang].c4_title;
+            document.getElementById('t-c4-desc').innerText = t[lang].c4_desc;
+            document.getElementById('t-c4-btn').innerText = t[lang].add_btn;
+
+            document.getElementById('t-c5-title').innerText = t[lang].c5_title;
+            document.getElementById('t-c5-desc').innerText = t[lang].c5_desc;
+            document.getElementById('t-c5-btn').innerText = t[lang].add_btn;
+
+            // Steps
+            document.getElementById('t-step-sub').innerText = t[lang].step_sub;
+            document.getElementById('t-step-title').innerText = t[lang].step_title;
+            document.getElementById('t-step1-title').innerText = t[lang].step1_t;
+            document.getElementById('t-step1-desc').innerText = t[lang].step1_d;
+            document.getElementById('t-step2-title').innerText = t[lang].step2_t;
+            document.getElementById('t-step2-desc').innerText = t[lang].step2_d;
+            document.getElementById('t-step3-title').innerText = t[lang].step3_t;
+            document.getElementById('t-step3-desc').innerText = t[lang].step3_d;
+
+            // About
+            document.getElementById('t-about-sub').innerText = t[lang].about_sub;
+            document.getElementById('t-about-title').innerText = t[lang].about_title;
+            document.getElementById('t-about-p1').innerText = t[lang].about_p1;
+            document.getElementById('t-about-p2').innerText = t[lang].about_p2;
+            document.getElementById('t-about-p3').innerText = t[lang].about_p3;
+            document.getElementById('t-about-p4').innerText = t[lang].about_p4;
+            document.getElementById('t-about-p5').innerText = t[lang].about_p5;
+            document.getElementById('t-b1').innerText = t[lang].b1;
+            document.getElementById('t-b2').innerText = t[lang].b2;
+            document.getElementById('t-b3').innerText = t[lang].b3;
+            document.getElementById('t-b4').innerText = t[lang].b4;
+
+            // Footer
+            document.getElementById('t-footer-sub').innerText = t[lang].footer_sub;
+            document.getElementById('t-footer-loc').innerText = t[lang].footer_loc;
+            document.getElementById('t-footer-pay').innerText = t[lang].footer_pay;
+
+            // Modal Form
+            document.getElementById('t-modal-title').innerText = t[lang].modal_title;
+            document.getElementById('t-cart-empty').innerText = t[lang].cart_empty;
+            document.getElementById('t-total-label').innerText = t[lang].total_label;
+            document.getElementById('t-lbl-fulfillment').innerText = t[lang].lbl_fulfillment;
+            document.getElementById('t-opt-pickup').innerText = t[lang].opt_pickup;
+            document.getElementById('t-opt-delivery').innerText = t[lang].opt_delivery;
+            document.getElementById('t-lbl-name').innerText = t[lang].lbl_name;
+            document.getElementById('t-lbl-phone').innerText = t[lang].lbl_phone;
+            document.getElementById('t-lbl-address').innerText = t[lang].lbl_address;
+            document.getElementById('t-lbl-notes').innerText = t[lang].lbl_notes;
+            document.getElementById('t-btn-submit').innerText = t[lang].btn_submit;
+
+            updateCartUI();
+        }
 
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
@@ -362,7 +510,7 @@
             badge.innerText = totalCount;
 
             if (cart.length === 0) {
-                container.innerHTML = `<p class="text-center text-[#8c6d58] text-sm py-12">Your bag is currently empty.</p>`;
+                container.innerHTML = `<p id="t-cart-empty" class="text-center text-[#8c6d58] text-sm py-12">${t[currentLang].cart_empty}</p>`;
                 checkoutSection.classList.add('hidden');
                 return;
             }
@@ -377,7 +525,7 @@
                     <div class="flex items-center justify-between bg-[#fdfbf7] p-3 rounded-2xl border border-[#f0e6dc]">
                         <div>
                             <h5 class="font-semibold text-sm text-[#5c4033]">${item.name}</h5>
-                            <p class="text-xs text-[#8c6d58]">${item.price} DA each</p>
+                            <p class="text-xs text-[#8c6d58]">${item.price} DA</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <button onclick="changeQty('${item.name}', -1)" class="w-7 h-7 bg-white border border-[#d3c2b0] rounded-lg font-bold text-xs text-[#5c4033] cursor-pointer">-</button>
