@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treats by Reen | Fresh Homemade Cookies</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #4a3525;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Striped accent background */
+        .striped-bg {
+            background: repeating-linear-gradient(
+                45deg,
+                #f9ebee,
+                #f9ebee 20px,
+                #f5efe6 20px,
+                #f5efe6 40px
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-[#fdfbf7]/90 backdrop-blur-md border-b border-[#e6dbc9]">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#f4c2c2] flex items-center justify-center font-bold text-[#5c4033] text-lg shadow-sm">
+                    🍪
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-[#5c4033]">Treats by Reen</h1>
+                    <p class="text-xs text-[#8c6d58] font-medium">Homemade with Love</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6b5344]">
+                <a href="#home" class="hover:text-[#d97777] transition">Home</a>
+                <a href="#about" class="hover:text-[#d97777] transition">Meet the Baker</a>
+                <a href="#menu" class="hover:text-[#d97777] transition">Menu</a>
+                <a href="#order" class="hover:text-[#d97777] transition">How to Order</a>
+            </nav>
+
+            <button onclick="toggleCart()" class="relative bg-[#f4c2c2] hover:bg-[#eab3b3] text-[#5c4033] px-5 py-2.5 rounded-full font-semibold text-sm transition shadow-sm flex items-center gap-2 cursor-pointer">
+                <span>🛒 Bag</span>
+                <span id="cart-badge" class="bg-[#5c4033] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="striped-bg py-16 md:py-24 px-6 border-b border-[#e6dbc9]">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block bg-[#fdfbf7] text-[#5c4033] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 shadow-xs border border-[#e6dbc9]">
+                Signature Cookie Bakery
+            </span>
+            <h2 class="text-4xl md:text-6xl font-bold text-[#5c4033] mb-6 tracking-tight">
+                Freshly Baked Homemade Cookies
+            </h2>
+            <p class="text-lg md:text-xl text-[#735846] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+                Warm, soft, and indulgent cookies made with love, care, and attention to detail. Only 350 DA each!
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#menu" class="w-full sm:w-auto bg-[#5c4033] hover:bg-[#432e24] text-white px-8 py-3.5 rounded-full font-semibold text-sm transition shadow-md">
+                    Explore Menu & Order
+                </a>
+                <a href="#about" class="w-full sm:w-auto bg-[#fdfbf7] hover:bg-[#f5efe6] text-[#5c4033] border border-[#d3c2b0] px-8 py-3.5 rounded-full font-semibold text-sm transition">
+                    Meet Serine
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Baker Section -->
+    <section id="about" class="py-20 px-6 bg-[#fdfbf7]">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-[#f0e6dc]">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Our Story</span>
+                <h3 class="text-3xl font-bold text-[#5c4033] mt-1">Meet the Baker</h3>
+            </div>
+            <div class="space-y-4 text-[#6b5344] text-base md:text-lg leading-relaxed">
+                <p class="font-semibold text-[#5c4033]">Welcome to Treats by Serine!</p>
+                <p>Hi! I’m Serine, the heart behind Treats by Serine. I’ve always dreamed of starting my own business, and with my love for sweet treats, baking and all things desserts, I decided to turn that passion into something special.</p>
+                <p>What started as a love for delicious sweets and the idea of creating my own little business has grown into a place where I can share that passion with others.</p>
+                <p>I believe every sweet treat should bring a little happiness. From freshly baked cookies to delicious desserts and custom treats, everything is made with love, care and attention to detail.</p>
+                <p class="italic text-[#8c6d58]">Thank you for supporting my little business and being part of my journey. I’m so excited to share all things sweet with you! ♡</p>
+            </div>
+
+            <!-- Bullet points -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#f0e6dc]">
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    Made with Love & Care
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    Delicious Sweet Treats
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    Attention to Every Detail
+                </div>
+                <div class="flex items-center gap-3 text-sm font-semibold text-[#5c4033]">
+                    <span class="w-6 h-6 rounded-full bg-[#f9ebee] text-[#d97777] flex items-center justify-center text-xs">✓</span>
+                    Custom Treats for Special Occasions
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 px-6 bg-[#f7f2eb]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Freshly Baked</span>
+                <h3 class="text-3xl md:text-4xl font-bold text-[#5c4033] mt-1">Our Signature Cookies</h3>
+                <p class="text-[#735846] mt-2">Every cookie is freshly baked to order at 350 DA each.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cookie 1: Chocolate Chip -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="https://storage.googleapis.com/generative-ai-assets/image_6.png" alt="Chocolate Chip Cookie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-[#5c4033]">Chocolate Chip Cookie</h4>
+                            <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
+                        </div>
+                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                            Classic golden cookie dough packed with gooey chocolate chips and a sprinkle of sea salt flakes.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Chocolate Chip Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                        + Add to Bag
+                    </button>
+                </div>
+
+                <!-- Cookie 2: Brownie Cookie -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="https://storage.googleapis.com/generative-ai-assets/image_4.png" alt="Brownie Cookie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-[#5c4033]">Brownie Cookie</h4>
+                            <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
+                        </div>
+                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                            Ultra-fudgy dark chocolate dough baked to soft perfection with a shiny crackly top.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Brownie Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                        + Add to Bag
+                    </button>
+                </div>
+
+                <!-- Cookie 3: White Chocolate Twix Cookie -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="https://storage.googleapis.com/generative-ai-assets/image_5.png" alt="White Chocolate Twix Cookie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-[#5c4033]">White Chocolate Twix Cookie</h4>
+                            <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
+                        </div>
+                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                            Rich buttery dough filled with white chocolate chunks, crunchy biscuit bits, and caramel swirl.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('White Chocolate Twix Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                        + Add to Bag
+                    </button>
+                </div>
+
+                <!-- Cookie 4: Mars Cookie -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="https://storage.googleapis.com/generative-ai-assets/image_3.png" alt="Mars Cookie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-[#5c4033]">Mars Cookie</h4>
+                            <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
+                        </div>
+                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                            Soft golden cookie stuffed with real caramel and rich Mars chocolate pieces.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('Mars Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                        + Add to Bag
+                    </button>
+                </div>
+
+                <!-- Cookie 5: M&M's Cookie -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#e8dfd3] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-52 rounded-2xl overflow-hidden mb-5 bg-[#f5efe6]">
+                            <img src="https://storage.googleapis.com/generative-ai-assets/image_7.png" alt="M&M's Cookie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-[#5c4033]">M&M's Cookie</h4>
+                            <span class="bg-[#f9ebee] text-[#a65252] font-bold text-sm px-3 py-1 rounded-full shrink-0 ml-2">350 DA</span>
+                        </div>
+                        <p class="text-[#735846] text-sm leading-relaxed mb-6">
+                            Classic buttery golden cookie packed with colorful, crunchy M&M's candies and milk chocolate chips.
+                        </p>
+                    </div>
+                    <button onclick="addToCart('M&M\'s Cookie', 350)" class="w-full bg-[#5c4033] hover:bg-[#432e24] text-white py-3 rounded-xl font-semibold text-sm transition shadow-sm cursor-pointer">
+                        + Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="order" class="py-20 px-6 bg-[#fdfbf7]">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs font-bold tracking-widest uppercase text-[#d97777]">Simple Process</span>
+            <h3 class="text-3xl font-bold text-[#5c4033] mt-1 mb-12">How to Order</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
+                    <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">1</div>
+                    <h5 class="font-bold text-[#5c4033] mb-2">Choose Cookies</h5>
+                    <p class="text-sm text-[#735846]">Select your favorite cookies and add them to your shopping bag.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
+                    <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">2</div>
+                    <h5 class="font-bold text-[#5c4033] mb-2">Fill Details</h5>
+                    <p class="text-sm text-[#735846]">Choose pickup or delivery, and enter your contact details.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-[#f0e6dc] shadow-xs">
+                    <div class="w-12 h-12 bg-[#f9ebee] text-[#d97777] rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">3</div>
+                    <h5 class="font-bold text-[#5c4033] mb-2">Cash on Delivery</h5>
+                    <p class="text-sm text-[#735846]">Send your order via WhatsApp and pay cash upon pickup or delivery!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#5c4033] text-[#fdfbf7] py-12 px-6 mt-auto">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <h2 class="text-2xl font-bold font-serif mb-1">Treats by Reen</h2>
+                <p class="text-xs text-[#d3c2b0]">Baked with love & premium ingredients by Serine. ♡</p>
+            </div>
+            <div class="text-sm text-[#d3c2b0] space-y-1">
+                <p>📍 Local Homemade Bakery</p>
+                <p>📸 Instagram: <a href="https://instagram.com/treatsbyreen" target="_blank" class="underline hover:text-white">@treatsbyreen</a></p>
+                <p class="mt-1">Order via WhatsApp / Cash on Delivery or Pickup</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Bag Drawer / Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl p-6 overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-[#f0e6dc]">
+                <h3 class="text-xl font-bold text-[#5c4033]">Your Shopping Bag</h3>
+                <button onclick="toggleCart()" class="text-[#735846] hover:text-black text-lg font-bold cursor-pointer">✕</button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items" class="flex-1 py-6 space-y-4 overflow-y-auto">
+                <p class="text-center text-[#8c6d58] text-sm py-12">Your bag is currently empty.</p>
+            </div>
+
+            <!-- Checkout Form Section -->
+            <div id="checkout-section" class="border-t border-[#f0e6dc] pt-4 hidden">
+                <div class="flex justify-between items-center mb-4 text-lg font-bold text-[#5c4033]">
+                    <span>Total:</span>
+                    <span id="cart-total">0 DA</span>
+                </div>
+
+                <form id="order-form" onsubmit="submitOrder(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Fulfillment Type</label>
+                        <select id="fulfillment" onchange="toggleAddress()" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                            <option value="Pickup">Store Pickup (Cash on Pickup)</option>
+                            <option value="Delivery">Local Delivery (Cash on Delivery)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Full Name *</label>
+                        <input type="text" id="cust-name" required placeholder="Enter your name" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Phone Number *</label>
+                        <input type="tel" id="cust-phone" required placeholder="Enter your phone number" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                    </div>
+
+                    <div id="address-box" class="hidden">
+                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Delivery Address *</label>
+                        <input type="text" id="cust-address" placeholder="Street / Neighborhood" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-[#5c4033] mb-1">Preferred Date / Notes</label>
+                        <input type="text" id="cust-notes" placeholder="e.g. Tomorrow afternoon" class="w-full bg-[#fdfbf7] border border-[#e6dbc9] rounded-xl p-2.5 text-sm text-[#5c4033] focus:outline-none focus:ring-1 focus:ring-[#5c4033]">
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3.5 rounded-xl font-bold text-sm transition shadow-sm mt-4 flex items-center justify-center gap-2 cursor-pointer">
+                        <span>Send Order via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function changeQty(name, change) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items');
+            const badge = document.getElementById('cart-badge');
+            const checkoutSection = document.getElementById('checkout-section');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+            badge.innerText = totalCount;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-[#8c6d58] text-sm py-12">Your bag is currently empty.</p>`;
+                checkoutSection.classList.add('hidden');
+                return;
+            }
+
+            checkoutSection.classList.remove('hidden');
+            let html = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                html += `
+                    <div class="flex items-center justify-between bg-[#fdfbf7] p-3 rounded-2xl border border-[#f0e6dc]">
+                        <div>
+                            <h5 class="font-semibold text-sm text-[#5c4033]">${item.name}</h5>
+                            <p class="text-xs text-[#8c6d58]">${item.price} DA each</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('${item.name}', -1)" class="w-7 h-7 bg-white border border-[#d3c2b0] rounded-lg font-bold text-xs text-[#5c4033] cursor-pointer">-</button>
+                            <span class="text-sm font-semibold text-[#5c4033]">${item.qty}</span>
+                            <button onclick="changeQty('${item.name}', 1)" class="w-7 h-7 bg-white border border-[#d3c2b0] rounded-lg font-bold text-xs text-[#5c4033] cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            totalEl.innerText = total + " DA";
+        }
+
+        function toggleAddress() {
+            const fulfillment = document.getElementById('fulfillment').value;
+            const addressBox = document.getElementById('address-box');
+            const addressInput = document.getElementById('cust-address');
+
+            if (fulfillment === 'Delivery') {
+                addressBox.classList.remove('hidden');
+                addressInput.required = true;
+            } else {
+                addressBox.classList.add('hidden');
+                addressInput.required = false;
+            }
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const fulfillment = document.getElementById('fulfillment').value;
+            const address = document.getElementById('cust-address').value;
+            const notes = document.getElementById('cust-notes').value;
+
+            let orderText = `Hello Serine! I would like to place an order from Treats by Reen:%0A%0A`;
+            let total = 0;
+
+            cart.forEach(item => {
+                orderText += `• ${item.qty}x ${item.name} (${item.price * item.qty} DA)%0A`;
+                total += item.price * item.qty;
+            });
+
+            orderText += `%0A*Total: ${total} DA*`;
+            orderText += `%0A*Fulfillment:* ${fulfillment}`;
+            if (fulfillment === 'Delivery') {
+                orderText += `%0A*Address:* ${address}`;
+            }
+            orderText += `%0A*Name:* ${name}`;
+            orderText += `%0A*Phone:* ${phone}`;
+            if (notes) {
+                orderText += `%0A*Notes:* ${notes}`;
+            }
+            orderText += `%0A*Payment:* Cash on ${fulfillment}`;
+
+            const whatsappNumber = "353892658386"; 
+            const url = `https://wa.me/${whatsappNumber}?text=${orderText}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
+
